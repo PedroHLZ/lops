@@ -1,0 +1,574 @@
+/* ##          ## */
+/* ##  Inicio  ## */
+/* ##          ## */
+section {
+  height: 100vh;
+  padding: 10rem 9% 2rem;
+}
+
+.home {
+  display: flex;
+  background: url(/img/barber3.jpg) no-repeat;
+  background-size: 100%;
+  background-position: right;
+  flex-wrap: wrap;
+  flex-direction: bottom;
+  align-content: flex-start;
+  background-color: var(--bg-color);
+  align-content: center;
+}
+
+
+.home-content {
+  max-width: 60rem;
+  z-index: 99;
+  margin-left: 16rem;
+}
+
+.home-content h1 {
+  position: relative;
+  display: inline-block;
+  font-size: 5.6rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.home-content .text-animate {
+  position: relative;
+  width: 32.8rem;
+}
+
+.home-content .text-animate h3 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: .7px var(--main-color);
+  background-image: linear-gradient(var(--main-color), var(--main-color));
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-position: -33rem 0;
+}
+
+.home.show-animate .home-content .text-animate h3 {
+  animation: homeBgText 6s linear infinite;
+  animation-delay: 2s;
+}
+
+.home-content .text-animate h3::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  border-right: 2px solid var(--main-color);
+  z-index: -1;
+}
+
+.home.show-animate .home-content .text-animate h3::before {
+  animation: homeCursorText 6s linear infinite;
+  animation-delay: 2s;
+}
+
+@keyframes homeBgText {
+
+  0%,
+  10%,
+  100% {
+    background-position: -33rem 0;
+  }
+
+  65%,
+  85% {
+    background-position: 0 0;
+  }
+}
+
+@keyframes homeCursorText {
+
+  0%,
+  10%,
+  100% {
+    width: 0;
+  }
+
+  65%,
+  78%,
+  85% {
+    width: 100%;
+    opacity: 1;
+  }
+
+  75%,
+  81% {
+    opacity: 0;
+  }
+}
+
+.home-content p {
+  position: relative;
+  font-size: 1.6rem;
+  margin: 2rem 0 4rem;
+}
+
+.btn-box {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 34.5rem;
+  height: 5rem;
+}
+
+.btn-box .btn {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 15rem;
+  height: 100%;
+  background: var(--main-color);
+  border: 0.2rem solid var(--main-color);
+  border-radius: 0.8rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--bg-color);
+  z-index: 1;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.btn-box .btn:hover {
+  color: var(--main-color);
+}
+
+.btn-box .btn:nth-child(2) {
+  background: transparent;
+  color: var(--main-color);
+}
+
+.btn-box .btn:nth-child(2):hover {
+  color: var(--bg-color);
+}
+
+.btn-box .btn:nth-child(2)::before {
+  background: var(--main-color);
+}
+
+.btn-box .btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: var(--bg-color);
+  z-index: -1;
+  transition: 0.5s;
+}
+
+.btn-box .btn:hover::before {
+  width: 100%;
+
+}
+
+.home-sci {
+  position: absolute;
+  bottom: 4rem;
+  width: 170px;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.home-sci a {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: .2re solid var(--main-color);
+  border-radius: 50%;
+  font-size: 20px;
+  color: var(--main-color);
+  z-index: 1;
+  overflow: hidden;
+}
+
+.home-sci a:hover {
+  color: var(--bg-color);
+}
+
+.home-sci a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: var(--main-color);
+  z-index: -1;
+  transition: 0.5s;
+}
+
+.home-sci a:hover::before {
+  width: 100%;
+}
+
+.home-imgHover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: transparent;
+  transition: 2s;
+  pointer-events: none;
+}
+
+.home-imgHover:hover {
+  background: var(--bg-color);
+  opacity: 0.8;
+}
+
+
+/* ##            ## */
+/* ##  Quem Sou  ## */
+/* ##            ## */
+
+.about {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: var(--second-bg-color);
+  padding-bottom: 6rem;
+  height: auto;
+}
+
+.about .about-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8rem;
+      padding-top: 12rem;
+}
+
+.about .about-column {
+  flex: 1 1 40rem;
+  display: contents;
+}
+
+.about .heading {
+  text-align: left;
+}
+
+
+.heading span {
+  color: var(--main-color);
+}
+
+.about-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.about-box .about-content {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.about-box img {
+  height: auto;
+  width: 618px;
+  position: absolute;
+  left: 0;
+}
+
+.about-box .about-content {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.about-content {
+  max-width: 70rem;
+  font-size: 1.6rem;
+  margin: 2rem 0 4rem;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.about-content h3 {
+  position: relative;
+  font-size: 2.6rem;
+  display: inline-block;
+}
+
+.about-content p {
+  padding: 20px 0px 0px 30px;
+  font-size: 1.4rem;
+  border-left: .2rem solid var(--main-color);
+}
+
+.about-content .content {
+  position: relative;
+  padding: 1.5rem;
+  border: .2rem solid var(--main-color);
+  border-radius: .6rem;
+  margin-bottom: 2rem;
+}
+
+
+/* ##            ## */
+/* ##  Educação  ## */
+/* ##            ## */
+
+.Servicos {
+  display: flex;
+  flex-direction: column;
+  min-height: auto;
+  padding-bottom: 6rem;
+}
+
+.Servicos-box {
+  display: grid;
+}
+
+.Servicos .Servicos-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5rem;
+
+}
+.Servicos .heading{
+  padding-top: 12rem;
+  
+}
+.Servicos .Servicos-column {
+  flex: 1 1 30rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Servicos-column .title {
+  position: relative;
+  font-size: 2.5rem;
+  margin: 0 0 1.5rem 2rem;
+}
+
+.Servicos-box .Servicos-content {
+  position: relative;
+  padding-left: 2rem;
+  display: flex;
+  gap: 4rem;
+}
+
+.Servicos-content .content {
+  position: relative;
+  padding: 1.5rem;
+  border: .2rem solid var(--main-color);
+  border-radius: .6rem;
+  margin-bottom: 2rem;
+}
+
+.Servicos-content .content h3 {
+  font-size: 1.5rem;
+}
+
+.Servicos-content .content p {
+  font-size: 1.3rem;
+  padding: 0 0.5rem 0.5rem 2.5rem;
+}
+
+.Servicos-content .content li {
+  font-size: 1.3rem;
+  padding: 0 0.5rem 0.5rem 2.5rem;
+  list-style: none;
+}
+
+.Servicos-content .card {
+  cursor: pointer;
+  width: 30rem;
+}
+
+.Servicos-content .card img {
+  width: auto;
+  height: 10rem;
+}
+.Servicos-bg{
+  background: rgb(0,0,0);
+  background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(20,28,41,0) 50%, rgba(20,28,41,1) 100%);
+  position: absolute;
+}
+.Servicos-bg img{
+ left: 0;
+  position:relative ;
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
+
+}
+section {
+  height: 100vh;
+  padding: 0; 
+}
+
+/* ##             ## */
+/* ##  contateme  ## */
+/* ##             ## */
+.contateme {
+  min-height: auto;
+  padding-bottom: 7rem;
+  background-color: var(--bg-color);
+}
+.contateme .heading{
+  padding-top: 12rem;
+  
+}
+.contateme form {
+  max-width: 70rem;
+  margin: 7rem auto;
+  text-align: center;
+}
+
+.contateme form .input-box {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.contateme form .input-box .input-field {
+  position: relative;
+  width: 49%;
+  margin: .8rem 0;
+}
+
+.contateme form .input-box .input-field input,
+.contateme form .textarea-field textarea {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+  font-size: 1.6rem;
+  color: var(--text-color);
+  background: transparent;
+  border-radius: .6rem;
+  border: .2rem solid var(--main-color);
+}
+
+.contateme form .input-box .input-field input::placeholder,
+.contateme form .textarea-field textarea::placeholder {
+  color: var(--text-color);
+}
+
+.contateme form .focus {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: var(--second-bg-color);
+  border-radius: .6rem;
+  z-index: -1;
+  transition: .5s;
+}
+
+.contateme form .input-box .input-field input:focus~.focus,
+.contateme form .input-box .input-field input:valid~.focus,
+.contateme form .textarea-field textarea:focus~.focus,
+.contateme form .textarea-field textarea:valid~.focus {
+  width: 100%;
+}
+
+
+.contateme form .textarea-field {
+  position: relative;
+  margin: .8rem 0 2.7rem;
+  display: flex;
+  width: 100%;
+}
+
+.contateme form .textarea-field textarea {
+  resize: none;
+}
+
+.contateme form .btn-box.btns .btn {
+  cursor: pointer;
+}
+
+/* ##            ## */
+/* ##   footer   ## */
+/* ##            ## */
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2rem 9%;
+  background: var(--second-bg-color);
+  height: auto;
+  padding-bottom: 7rem;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer-text p {
+  font-size: 1.6rem;
+}
+
+.footer-iconTop {
+  position: relative;
+  display: inline-flex;
+  padding: 0.8rem;
+  background: var(--main-color);
+  border: 0.2rem solid var(--main-color);
+  border-radius: 0.6rem;
+  z-index: 1;
+  overflow: hidden;
+  width: 42px;
+  height: 42px;
+  left: 90%;
+}
+
+.footer-iconTop a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: var(--second-bg-color);
+  border-radius: .6rem;
+  z-index: -1;
+  transition: .5s;
+}
+
+.footer-iconTop a:hover::before {
+  height: 100%;
+}
+
+.footer-iconTop a i {
+  font-size: 2.4rem;
+  color: var(--bg-color);
+  transition: .5s;
+}
+
+.footer-iconTop a i:hover {
+  color: var(--main-color);
+}
+
+/* ##                             ## */
+/* ##   reload/scroll animation   ## */
+/* ##                             ## */
+.animate {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-color);
+  z-index: 98;
+}

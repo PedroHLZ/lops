@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+/* Estilos gerais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Cores personalizadas */
+:root {
+  --bg-color: #000;
+  --second-bg-color: #141C29;
+  --text-color: #ffffff;
+  --main-color: #00a2ff;
+}
+
+/* Configurações do HTML */
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+/* Configurações do body */
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Estilos do cabeçalho/menu */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 10% 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  transition: .3s;
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.header img{
+height: 60px;
+width: auto;
+}
+.sticky {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  position: relative;
+  font-size: 25px;
+  color: var(--text-color);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+}
+
+.navbar {
+  position: relative;
+  align-items: flex-end;
+}
+
+.navbar a {
+  font-size: 1.7rem;
+  color: var(--text-color);
+  font-weight: 500;
+  margin-left: 3.5rem;
+  transition: .3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+  color: var(--main-color);
+  font-weight: 700;
+}
+
+#menu-icon {
+  position: relative;
+  font-size: 3.6rem;
+  color: var(--text-color);
+  cursor: pointer;
+  display: none;
+}
+
+/* Botões de mudança de cores */
+.bt-cores {
+  display: flex;
+  gap: 0.5rem;
+  width: 8rem;
+  justify-content: flex-end;
+}
+
+#change-colors-button-1,
+#change-colors-button-2,
+#change-colors-button-3 {
+  width: 15px;
+  height: 25px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: .5s;
+}
+
+#change-colors-button-1 {
+  background-color: #00abf0;
+}
+
+#change-colors-button-2 {
+  background-color: #ff0000;
+}
+
+#change-colors-button-3 {
+  background-color: #00ff00;
+}
+
+#change-colors-button-1:hover,
+#change-colors-button-2:hover,
+#change-colors-button-3:hover {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+
+/* Estilos do título */
+.heading {
+  position: relative;
+  font-size: 5.6rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
