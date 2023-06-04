@@ -61,13 +61,20 @@ window.addEventListener('scroll', () => {
 });
 
 // Adicione esse código para tornar o menu responsivo
-let menuIcon = document.querySelector('#menu-icon');
-let navbar = document.querySelector('.navbar');
+function toggleMenu() {
+    var navbar = document.getElementById("myNavbar");
+    if (navbar.className === "navbar") {
+        navbar.className += " responsive";
+    } else {
+        navbar.className = "navbar";
+    }
+}
 
-menuIcon.addEventListener('click', () => {
-    menuIcon.classList.toggle('bx-x');
-    navbar.classList.toggle('active');
-});
+function closeMenu() {
+    var navbar = document.getElementById("myNavbar");
+    navbar.className = "navbar";
+}
+
 
 //    header sticks scroll    //
 window.addEventListener('scroll', () => {
@@ -78,3 +85,4 @@ window.addEventListener('scroll', () => {
     menuIcon.classList.remove('bx-x');
     navbar.classList.remove('active');
 });
+

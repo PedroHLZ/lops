@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Lobster&family=Pacifico&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&family=Satisfy&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Lobster&family=Pacifico&family=Satisfy&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 /* Importar o FontAwesome (ícones) */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
@@ -37,8 +37,78 @@ body {
   overflow: hidden;
 }
 
-/* Estilos do cabeçalho/menu */
+/* Estilos do menu */
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 10% 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  transition: .3s;
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: var(--text-color);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 64px;
+  margin-top: 16px;
+}
+
+.logo span {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.3;
+  font-family:'Lobster';
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.navbar a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 2rem;
+}
+
+.active {
+  font-weight: bold;
+}
+
+/* Estilos do menu responsivo */
+.menu-icon {
+  display: none;
+  cursor: pointer;
+}
+
+/* Ícone do menu hamburguer */
+.menu-icon span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin-bottom: 5px;
+}
+
+
+
+
+
+/* .header {
   position: fixed;
   top: 0;
   left: 0;
@@ -57,50 +127,13 @@ body {
 .header img {
   height: 60px;
   width: auto;
-}
+} */
 
 .sticky {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.logo span {
-  position: relative;
-  font-size: 5rem;
-  color: var(--text-color);
-  font-weight: 400;
-  display: inline-flex;
-  font-family:'Lobster';
-  top: -13px;
-}
-
-#menu-icon {
-  position: relative;
-  font-size: 3.6rem;
-  color: var(--text-color);
-  cursor: pointer;
-  display: none;
-}
-
-.navbar {
-  position: relative;
-  align-items: flex-end;
-}
-
-.navbar a {
-  font-size: 2rem;
-  color: var(--text-color);
-  font-weight: 500;
-  margin-left: 3.5rem;
-  transition: .3s;
-  font-family:'Roboto';
-}
-
-.navbar a:hover,
-.navbar a.active {
-  color: var(--main-color);
-  font-weight: 700;
+  box-shadow: 0 2px 20px 0px rgb(255, 255, 255);
+  height: 80px;
 }
 
 

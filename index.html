@@ -54,33 +54,36 @@
         </div>
 
         <!-- Ícone do menu -->
-        <div class="bx bx-menu" id="menu-icon">
-
+        <div class="menu-icon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
 
         <!-- Navegação -->
-        <nav class="navbar">
+        <nav class="navbar" id="myNavbar">
             <!-- Links do menu -->
-            <a href="#home" class="active">Início</a>
-            <a href="#about">A Barbearia</a>
-            <a href="#Servicos">Serviços</a>
-            <a href="#contateme">Contato</a>
+            <a href="#home" class="active" onclick="closeMenu()">Início</a>
+            <a href="#about" onclick="closeMenu()">A Barbearia</a>
+            <a href="#Servicos" onclick="closeMenu()">Serviços</a>
+            <a href="#contateme" onclick="closeMenu()">Contato</a>
 
             <!-- Indicador de navegação ativa -->
             <span class="active-nav"></span>
-
         </nav>
-
-          
     </header>
+
+
     <div class="floating-buttons">
-        <a class="whatsapp-button" href="https://api.whatsapp.com/send?phone=5581987576755&text=Quero%20Agenda:%20um%20servi%C3%A7o!" target="_blank">
-          <i class="fab fa-whatsapp"></i>
+        <a class="whatsapp-button"
+            href="https://api.whatsapp.com/send?phone=5581987576755&text=Quero%20Agenda:%20um%20servi%C3%A7o!"
+            target="_blank">
+            <i class="fab fa-whatsapp"></i>
         </a>
         <a class="instagram-button" href="https://www.instagram.com/lopsbarbe/" target="_blank">
-          <i class="fab fa-instagram"></i>
+            <i class="fab fa-instagram"></i>
         </a>
-      </div>
+    </div>
     <!-- Seção Início -->
     <section class="home show-animat" id="home">
         <div class="home-content">
@@ -184,7 +187,7 @@
                                 </li>
                             </ul>
                         </div>
-                        
+
                         <div class="card">
                             <img src="img/barba.png" alt="barba">
                             <ul>
@@ -203,7 +206,7 @@
                                 </li>
                             </ul>
                         </div>
-                        
+
                         <div class="card">
                             <img src="img/maquina.png" alt="maquina">
                             <ul>
@@ -218,20 +221,20 @@
                                     <h3>>> Máquina Degrê (Fade)</h3>
                                 </li>
                                 <li>
-                                    <h3>>> Máquina + Barba Navalha + Sobrancelha</h3>
+                                    <h3>>> + Barba Navalha + Sobrancelha</h3>
                                 </li>
                             </ul>
                         </div>
-                        
+
                         <div class="card">
                             <img src="img/escova-progressiva.png" alt="escova-progressiva">
                             <ul>
-                                <h3>Escova</h3>
+                                <h2>ESCOVA</h2>
                                 <li>
-                                    <h3>>> Escova Progressiva Cabelo Curto</h3>
+                                    <h3>>> Progressiva </h3>
                                 </li>
                                 <li>
-                                    <h3>>> Corte + Escova Progressiva Cabelo Curto</h3>
+                                    <h3>>> Corte + Progressiva </h3>
                                 </li>
                             </ul>
                         </div>
@@ -284,19 +287,86 @@
     </section>
 
     <!-- RODAPÉ -->
-    <section class="footer">
-        <!-- Área de texto do rodapé -->
-        <br class="footer-text">
-        <p>Lop'S Barbeshop</p> </br>
-        <span>(81) 9 8888-8888</span>
-        </br>
-        <span>&copy; Todos os direitos reservados.</span>
+    <footer class="footer">
+
+
+        <div class="footer-content">
+            <p class="footer-text"><a><span>Contato:</span></a></p>
+            <br>
+            <span>(81) 9 8757-6755</span>
+            <br>
+            <a href="+558198757-6755" target="_blank">
+                <span> Ligue agora!</span>
+            </a>
+
+        </div>
+        <br>
+        <div class="footer-content">
+            <p class="footer-text"><a><span> Endereço:</span></a></p>
+            <a href="https://www.google.com/maps/dir//R.+da+Linha,+657+-+Alto+da+Bondade" target="_blank">
+                <img alt="Rotas" src="//www.gstatic.com/images/icons/material/system/2x/directions_white_18dp.png">
+            </a>
+
+
+            <br>
+            <span>R. da Linha, 657 - Alto da Bondade, Olinda - PE
+                <br>CEP: 53170-010</span>
+            <br>
+            <!-- Botão de rotas -->
+
+
+        </div>
+        <br>
+        <div class="footer-content">
+            <p class="footer-text"><a><span> Horário de funcionamento:</span></a></p>
+            <br>
+            <table itemprop="openingHours">
+                <tbody>
+                    <tr>
+                        <th>seg.:</th>
+                        <td><span>08:00&thinsp;–&thinsp;18:00</span></td>
+                    </tr>
+                    <tr>
+                        <th>ter.:</th>
+                        <td><span>Fechado</span></td>
+                    </tr>
+                    <tr>
+                        <th>qua.:</th>
+                        <td><span>08:00&thinsp;–&thinsp;18:00</span></td>
+                    </tr>
+                    <tr>
+                        <th>qui.:</th>
+                        <td><span>08:00&thinsp;–&thinsp;18:00</span></td>
+                    </tr>
+                    <tr>
+                        <th>sex.:</th>
+                        <td><span>08:00&thinsp;–&thinsp;18:00</span></td>
+                    </tr>
+                    <tr>
+                        <th>sáb.:</th>
+                        <td><span>08:00&thinsp;–&thinsp;18:00</span></td>
+                    </tr>
+                    <tr>
+                        <th>dom.:</th>
+                        <td><span>08:00&thinsp;–&thinsp;12:00</span></td>
+
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
-        <!-- Ícone de retorno ao topo da página -->
+
         <div class="footer-iconTop">
-            <a href="#"><i class='bx bx-up-arrow-alt'></i></a>
+            <a href="#"><i class="bx bx-up-arrow-alt"></i></a>
         </div>
+    </footer>
+    <section class="direitos">
+        <div class="footer-content">
+            <p class="footer-text"><a>Lop's Barbeshop</a></p>
+            <br>
+            <span>&copy; Todos os direitos reservados.</span>
+        </div>
+    </footer>
     </section>
 
     <!-- Script jQuery -->

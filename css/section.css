@@ -125,8 +125,8 @@ section {
 }
 
 .about-content p {
-  padding: 20px 0px 0px 30px;
-  font-size: 1.4rem;
+  padding: 20px 100px 0px 16px;
+  font-size: 1.5rem;
   border-left: .2rem solid var(--main-color);
   font-family:'Poppins';
 }
@@ -216,10 +216,21 @@ section {
   font-size: 1.3rem;
   padding: 0 0.5rem 0.5rem 2.5rem;
   list-style: none;
+
+  background-color: rgba(0, 0, 0, 0.2);
+
 }
+.Servicos-content  h2 {
+  font-size: 3rem;
+  line-height: 2;
+  text-transform: capitalize;
+  text-align: center;
+}
+
 .Servicos-content  h3 {
   font-size: 1.5rem;
   text-transform: capitalize;
+
 }
 
 .Servicos-content p {
@@ -350,6 +361,7 @@ section {
 /* ##   footer   ## */
 /* ##            ## */
 
+
 .footer {
   display: flex;
   flex-wrap: wrap;
@@ -357,14 +369,25 @@ section {
   background: var(--second-bg-color);
   height: auto;
   padding-bottom: 7rem;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
 }
 
-.footer-text p {
-  font-size: 1.6rem;
+.footer-text {
+  font-size: 2rem;
+}
+.footer span {
+  font-size: 1.5rem;
 }
 
+.footer th{
+  font-size: 1.5rem;
+  color: var(--main-color);
+}
+.footer a span{
+  font-size: 2.5rem;
+  color: var(--main-color);
+}
 .footer-iconTop {
   position: relative;
   display: inline-flex;
@@ -405,16 +428,11 @@ section {
 .footer-iconTop a i:hover {
   color: var(--main-color);
 }
-
-/* ##                             ## */
-/* ##   reload/scroll animation   ## */
-/* ##                             ## */
-.animate {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--bg-color);
-  z-index: 98;
+.direitos {
+  display: flex;
+  background: var(--second-bg-color);
+  justify-content: center;
+  text-align: center;
+  height: auto;
+  padding-bottom: 3%;
 }
