@@ -86,3 +86,6 @@ window.addEventListener('scroll', () => {
     navbar.classList.remove('active');
 });
 
+function toggleDropdown(card) {
+    card.classList.toggle('active');
+  }

@@ -108,59 +108,29 @@
 
     <!-- Seção Sobre -->
     <section class="about" id="about">
-         <div class="about-bg">
-            <img src="img/bg-tigolos.jpg" alt="">
-        </div>
         <div class="about-row">
-            <div class="about-box">
-                <img src="/img/studio.jpg">
-            </div>
-   
+            <div class="about-content">
+                <h2 class="heading">A <span>Barbearia</span></h2>
      
-            <div class="about-box">
-                <div class="about-content">
-                    <h2 class="heading">A <span>Barbearia</span></h2>
-         
-                    <h3>Lop'S Barbeshop</h3>
+                <h3>Lop'S Barbeshop</h3>
 
-                    <div class="about-content">
-                        <!-- Parágrafo de introdução -->
-                        <p>
-                            Nossa história começou com a necessidade do visual de proporcionar um espaço acolhedor
-                            para os homens se sentirem bem consigo mesmos. Tudo começou quando o Thiago decidiu
-                            fazer o curso de Barbeiro e criar um lugar especial.
-                        </p>
-                        <p>
-                            Com habilidades afiadas e uma visão clara do que queríamos oferecer, transformamos nossa
-                            paixão em realidade. Cada um de nós trouxe sua experiência única e especialização em
-                            diferentes áreas, desde o corte de cabelo e barba até a estética masculina.
-                        </p>
-                        <p>
-                            Desde o primeiro dia, nossa missão tem sido oferecer um ambiente confortável,
-                            descontraído e exclusivamente masculino. Queríamos criar um espaço onde os homens
-                            pudessem se sentir à vontade, relaxar e se cuidar. Um lugar onde pudessem desfrutar de
-                            serviços de qualidade.
-                        </p>
-                        <p>
-                            Hoje, somos reconhecidos como O LUGAR PARA HOMENS, um destino confiável para aqueles que
-                            desejam não apenas cuidar de sua aparência, mas também encontrar um ambiente acolhedor,
-                            fazer amizades e aproveitar momentos de descontração.
-                        </p>
-                        <p>
-                            Estamos orgulhosos de nossa jornada e convidamos todos os homens a fazerem parte dela.
-                            Venha nos visitar e descubra por que nossa barbearia se tornou um local tão especial,
-                            onde o cuidado pessoal encontra a camaradagem masculina.
-                        </p>
-                    </div>
+                <div class="about-content">
+                    <!-- Parágrafo de introdução -->
+                    <p>
+                        Tudo começou quando o Thiago decidiu
+                        fazer o curso de Barbeiro e criar um lugar especial.
+                    </p>
+                    <p>
+                        Com habilidades afiadas e uma visão clara do que queríamos, transformou em realidade. 
+                        Experiência única e especialização em diferentes áreas, desde o corte de cabelo e barba até a estética masculina.
+                    </p>
                 </div>
             </div>
-        </div>
         </div>
     </section>
 
     <!-- Seção Servicos -->
     <section class="Servicos" id="Servicos">
-        <div class="Servicos-bg"><img src="img/bg-tigolos.jpg" alt=""></div>
         <h2 class="heading">Nossos <span>Serviços:</span></h2>
         <div class="Servicos-row">
 
@@ -170,10 +140,11 @@
 
                     <!-- Cards -->
                     <div class="Servicos-content">
-                        <div class="card">
+                        <div class="card" onclick="toggleDropdown(this)">
                             <img src="img/corte.png" alt="Imagem de referência 1">
-                            <ul>
-                                <h2>CORTE</h2>
+                            <h2>CORTE</h2>
+                            <ul class="dropdown-content">
+                               
                                 <li>
                                     <h3>>> Adulto</h3>
                                 </li>
@@ -192,10 +163,11 @@
                             </ul>
                         </div>
 
-                        <div class="card">
+                        <div class="card" onclick="toggleDropdown(this)">
                             <img src="img/barba.png" alt="barba">
-                            <ul>
-                                <h2>BARBA</h2>
+                            <h2>BARBA</h2>
+                            <ul class="dropdown-content">
+                               
                                 <li>
                                     <h3>>> Navalha</h3>
                                 </li>
@@ -211,10 +183,11 @@
                             </ul>
                         </div>
 
-                        <div class="card">
+                        <div class="card" onclick="toggleDropdown(this)">
                             <img src="img/maquina.png" alt="maquina">
-                            <ul>
-                                <h2>MÁQUINA</h2>
+                            <h2>MÁQUINA</h2>
+                            <ul class="dropdown-content">
+                               
                                 <li>
                                     <h3>>> Máquina</h3>
                                 </li>
@@ -230,10 +203,11 @@
                             </ul>
                         </div>
 
-                        <div class="card">
+                        <div class="card" onclick="toggleDropdown(this)">
                             <img src="img/escova-progressiva.png" alt="escova-progressiva">
-                            <ul>
-                                <h2>ESCOVA</h2>
+                            <h2>ESCOVA</h2>
+                            <ul class="dropdown-content">
+                               
                                 <li>
                                     <h3>>> Progressiva </h3>
                                 </li>

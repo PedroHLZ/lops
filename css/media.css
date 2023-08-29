@@ -10,18 +10,6 @@
         padding: 0;
     }
 
-    .home {
-        background-size: 250%;
-        background-position: center;
-    }
-
-    .Servicos-content {
-        display: flex;
-        gap: 2rem;
-        flex-wrap: wrap;
-        justify-content: center;
-        width: 88%;
-    }
 
     .Servicos-box {
         justify-content: center;
@@ -30,9 +18,126 @@
     .about .about-column {
         display: initial;
     }
+    .about {
+        background-size: cover;
+    }
 
-    .about .heading {
+    .heading {
+        position: relative;
+        font-size: 3rem;
+        margin-bottom: 3rem;
         text-align: center;
+    }
+
+    .about-box .about-content {
+        position: relative;
+        padding-left: 1rem;
+    }
+    .about-content {
+        max-width: 70rem;
+        font-size: 1.6rem;
+        margin: 2rem 0 4rem;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    .about-content p {
+        background-color: rgba(0, 0, 0, 0.8);
+        width: 92%;
+    }
+    .Servicos-content .card {
+        cursor: pointer;
+        width: 100%;
+        position: relative;
+        padding: 1.5rem;
+        border: 0.2rem solid var(--main-color);
+        border-radius: 0.6rem;
+        text-transform: capitalize;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .Servicos-content .card img {
+        width: auto;
+        height: 3rem;
+        filter: invert(100%);
+        margin-top: 20px;
+    }
+
+    .Servicos-content h2 {
+        font-size: 3rem;
+        line-height: 2;
+        text-transform: capitalize;
+        text-align: start;
+    }
+
+    .Servicos-content {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+        padding: 1.5rem 1.5rem 1.5rem 0;
+    }
+
+    .card {
+        cursor: pointer;
+        width: 100%;
+        position: relative;
+        padding: 1.5rem;
+        border: 0.2rem solid var(--main-color);
+        border-radius: 0.6rem;
+        text-transform: capitalize;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        transition: height 0.3s ease;
+        /* Transição de altura */
+        overflow: hidden;
+        /* Esconder o conteúdo que ultrapassar a altura */
+        height: auto;
+        /* Altura automática por padrão */
+    }
+
+    .dropdown-content {
+        display: none;
+        padding-top: 1rem;
+        /* Espaçamento superior quando o conteúdo é expandido */
+    }
+
+    .card.active {
+        height: auto;
+        /* Altura automática quando expandido */
+        flex-wrap: wrap;
+    }
+
+    .card.active .dropdown-content {
+        display: block;
+    }
+
+    .contateme form .input-box {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+    .contateme form .textarea-field {
+        width: 60%;
+        height: 200px;
+    }
+    .contateme form .input-box .input-field {
+        width: 60%;
+    }
+    .contateme .heading {
+        padding-top: 10rem;
+    }
+    .home {
+        background-position: center;
+        background-size: cover;
     }
 }
 
@@ -49,6 +154,7 @@
         position: fixed;
         left: 71px;
     }
+
     .logo img {
         height: 64px;
         margin-top: 16px;
@@ -64,8 +170,8 @@
         padding-top: 80px;
 
     }
-    
- 
+
+
 
     .navbar a {
         padding: 5px;
@@ -78,7 +184,7 @@
             padding: 0px;
             height: 10px;
         }
-        
+
         100% {
             padding: 5px;
             height: 20px;
@@ -101,21 +207,23 @@
         animation: menuscroll .3s linear;
         background-color: black;
     }
+
     @keyframes menuscroll {
         0% {
             padding-bottom: 0vh;
         }
-    
+
         100% {
             padding-bottom: 100vh;
         }
     }
+
     .about .about-row {
         display: flex;
         flex-wrap: wrap;
         gap: 0rem;
         padding-top: 12rem;
-      }
+    }
 }
 
 /* Tamanho de tela até 411px */
@@ -125,7 +233,8 @@
     }
 
     .about-box img {
-        width: 100%;
+        height: 0%;
+        width: 0%;
     }
 
     section {
@@ -145,6 +254,8 @@
         flex-direction: column;
         justify-content: flex-start;
     }
+
+
 }
 
 /* Tamanho de tela até 462px */
