@@ -86,6 +86,14 @@ window.addEventListener('scroll', () => {
     navbar.classList.remove('active');
 });
 
+// Armazenar uma referência para o último card ativo
+let lastActiveCard = null;
+
 function toggleDropdown(card) {
-    card.classList.toggle('active');
+  if (lastActiveCard && lastActiveCard !== card) {
+    lastActiveCard.classList.remove('active');
   }
+  
+  card.classList.toggle('active');
+  lastActiveCard = card;
+}
