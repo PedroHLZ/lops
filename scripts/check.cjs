@@ -1,0 +1,25 @@
+const fs = require('node:fs');
+const vm = require('node:vm');
+const assert = require('node:assert/strict');
+const html = fs.readFileSync('index.html', 'utf8');
+const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
+assert.equal(ids.length,new Set(ids).size,'IDs duplicados');
+for(const m of html.matchAll(/href="#([^"]+)"/g)) assert.ok(ids.includes(m[1]), 'Destino inexistente: '+m[1]);
+for(const m of html.matchAll(/<img\b[^>]*>/g)) assert.match(m[0],/\balt="/);
+for(const m of html.matchAll(/<label for="([^"]+)"/g)) assert.ok(ids.includes(m[1]));
+function element(){ const classes=new Set(); return {value:'',textContent:'',dataset:{},events:{},attributes:{},children:[],classList:{add:c=>classes.add(c),remove:c=>classes.delete(c),contains:c=>classes.has(c),toggle(c){if(classes.has(c)){classes.delete(c);return false;}classes.add(c);return true;}}, addEventListener(k,fn){this.events[k]=fn;},setAttribute(k,v){this.attributes[k]=v;},removeAttribute(k){delete this.attributes[k];},setCustomValidity(v){this.validity=v;},reportValidity(){},append(v){this.children.push(v);},focus(){this.focused=true;},querySelectorAll(){return [];}}; }
+const selectors=['.menu-toggle','#navigation','#service','#form-status','#booking-form','#customer-name','#message','#year'];
+const nodes=Object.fromEntries(selectors.map(s=>[s,element()]));
+const card=element();card.dataset.service='Barba';
+const docEvents={};const opened=[];
+const document={documentElement:element(),querySelector:s=>nodes[s],querySelectorAll:s=>s==='[data-service]'?[card]:[],addEventListener:(k,fn)=>docEvents[k]=fn,createElement:()=>element()};
+const window={matchMedia:()=>({addEventListener(){}}),open:(...args)=>opened.push(args)};
+vm.runInNewContext(fs.readFileSync('js/script.js','utf8'),{document,window,Date,encodeURIComponent});
+nodes['.menu-toggle'].events.click();assert.equal(nodes['.menu-toggle'].attributes['aria-expanded'],'true');
+docEvents.keydown({key:'Escape'});assert.equal(nodes['.menu-toggle'].attributes['aria-expanded'],'false');assert.ok(nodes['.menu-toggle'].focused);
+card.events.click();assert.equal(nodes['#service'].value,'Barba');
+nodes['#customer-name'].value='   ';nodes['#booking-form'].events.submit({preventDefault(){}});assert.equal(opened.length,0);
+nodes['#customer-name'].value='João & Ana';nodes['#customer-name'].events.input({target:nodes['#customer-name']});assert.equal(nodes['#customer-name'].validity,'');
+nodes['#message'].value='Sábado às 10h?';nodes['#booking-form'].events.submit({preventDefault(){}});
+assert.equal(opened.length,1);const url=new URL(opened[0][0]);assert.equal(url.hostname,'wa.me');assert.equal(url.pathname,'/5581987576755');assert.match(url.searchParams.get('text'),/João & Ana/);assert.match(url.searchParams.get('text'),/Barba/);assert.match(url.searchParams.get('text'),/Sábado às 10h/);assert.equal(nodes['#form-status'].children[0].href,url.href);
+console.log('OK: destinos, imagens, rótulos, menu, Escape, seleção, validação e mensagem do WhatsApp. Nenhuma mensagem enviada.');
