@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#20251e">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Caixa | Lop’s Barbearia</title>
+  <link rel="icon" href="../img/barbetower.png">
+  <link rel="stylesheet" href="app.css">
+  <script type="module" src="app.mjs"></script>
+</head>
+<body>
+  <a class="skip" href="#workspace">Pular para o caixa</a>
+  <header class="app-header">
+    <a class="brand" href="../" aria-label="Voltar ao site da Lop’s"><strong>Lop’s<span>.</span></strong><span>CAIXA DA BARBEARIA</span></a>
+    <span class="private-label">Área do proprietário</span>
+  </header>
+  <main id="workspace">
+    <section id="gate" class="gate" aria-labelledby="gate-title">
+      <p class="eyebrow">SEU NEGÓCIO, EM DIA</p>
+      <h1 id="gate-title">Um cuidado a mais<br>com a sua barbearia.</h1>
+      <p id="gate-description">Preparando o caixa…</p>
+      <button id="activate" class="button" type="button" hidden>Começar neste celular <span aria-hidden="true">↗</span></button>
+      <p id="gate-status" role="status"></p>
+      <noscript>Ative o JavaScript do navegador para usar o caixa.</noscript>
+      <a class="subtle-link" href="../">← Voltar ao site</a>
+    </section>
+
+    <div id="application" class="app-layout" hidden>
+      <nav class="app-nav" aria-label="Seções do caixa">
+        <button type="button" data-view="overview" aria-current="page"><span aria-hidden="true">◫</span>Resumo</button>
+        <button type="button" data-view="history"><span aria-hidden="true">≡</span>Histórico</button>
+        <button type="button" data-view="services"><span aria-hidden="true">✂</span>Serviços</button>
+        <button type="button" data-view="settings"><span aria-hidden="true">⚙</span>Ajustes</button>
+        <a href="../" class="nav-site">Ver site ↗</a>
+      </nav>
+      <div class="app-content">
+        <div class="workspace-heading"><div><p class="eyebrow">LOP’S / GESTÃO</p><h1 id="page-title">Seu caixa, sem complicação.</h1></div><button id="refresh" class="icon-button" type="button" aria-label="Atualizar registros">↻</button></div>
+        <div id="storage-notice" class="notice"></div>
+        <p id="app-status" class="status" role="status" aria-live="polite"></p>
+
+        <section id="view-overview" aria-label="Resumo financeiro">
+          <article class="panel quick-panel" aria-labelledby="quick-title">
+            <div class="quick-heading"><div><p class="eyebrow">SERVIÇO FEITO, CAIXA EM DIA</p><h2 id="quick-title">O que acabou de fazer?</h2><p id="quick-date" class="quick-date"></p></div></div>
+            <p class="quick-help">Toque no serviço realizado. Os botões de pagamento se abrem abaixo dele; escolha um para registrar no caixa.</p>
+            <div id="quick-services" class="quick-service-grid"></div>
+            <div class="quick-feedback"><p id="quick-status" role="status" aria-live="polite"></p><button class="text-button" id="undo-quick" type="button" hidden>Desfazer último registro</button></div>
+          </article>
+          <div class="period-control"><div class="presets" role="group" aria-label="Período do resumo"><button type="button" data-period="today" aria-pressed="true">Hoje</button><button type="button" data-period="month" aria-pressed="false">Este mês</button><button type="button" data-period="custom" aria-pressed="false">Escolher</button></div><p id="period-label"></p></div>
+          <form id="overview-dates" class="date-range" hidden><div><label for="overview-start">De</label><input type="date" id="overview-start" required></div><div><label for="overview-end">Até</label><input type="date" id="overview-end" required></div><button class="button secondary" type="submit">Aplicar</button></form>
+          <div class="metrics"><article class="metric primary"><p>Entradas recebidas</p><strong id="metric-income">R$ 0,00</strong><small>Serviços confirmados no período</small></article><article class="metric"><p>Despesas pagas</p><strong id="metric-expense">R$ 0,00</strong><small>Saídas registradas</small></article><article class="metric"><p>Resultado do período</p><strong id="metric-net">R$ 0,00</strong><small>Entradas menos despesas</small></article></div>
+          <div class="quick-actions"><button class="button secondary" id="new-income" type="button"><span aria-hidden="true">＋</span> Atendimento com mais opções</button><button class="button secondary" id="new-expense" type="button"><span aria-hidden="true">−</span> Registrar despesa</button></div>
+          <div class="mini-metrics"><p><strong id="metric-count">0</strong> atendimentos</p><p>Ticket médio <strong id="metric-average">R$ 0,00</strong></p><p>Descontos <strong id="metric-discount">R$ 0,00</strong></p></div>
+          <div class="dashboard-grid"><article class="panel"><div class="panel-title"><h2>Formas de pagamento</h2><span>Recebimentos</span></div><div id="payments"></div></article><article class="panel"><div class="panel-title"><h2>Serviços realizados</h2><span>Quantidade</span></div><div id="ranking"></div><p class="fine-print">Valores dos serviços antes de descontos.</p></article></div>
+          <article class="panel"><div class="panel-title"><h2>Últimos lançamentos</h2><button class="text-button" data-view="history" type="button">Ver histórico ↗</button></div><div id="recent-entries"></div></article>
+        </section>
+
+        <section id="view-history" aria-label="Histórico de lançamentos" hidden>
+          <form id="history-filter" class="panel filter-form"><div class="field-row"><div><label for="history-start">De</label><input id="history-start" type="date" required></div><div><label for="history-end">Até</label><input id="history-end" type="date" required></div></div><div class="field-row"><div><label for="history-kind">Tipo</label><select id="history-kind"><option value="">Entradas e despesas</option><option value="income">Entradas</option><option value="expense">Despesas</option></select></div><div><label for="history-query">Buscar</label><input type="search" id="history-query" placeholder="Serviço ou descrição" maxlength="120"></div></div><div class="filter-actions"><label class="checkbox-label"><input type="checkbox" id="history-canceled"> Incluir cancelados</label><button class="button secondary" type="submit">Filtrar</button></div></form>
+          <div class="section-actions"><p id="history-summary"></p><button class="text-button" id="export-csv" type="button">Exportar CSV ↓</button></div>
+          <div id="history-entries" class="panel"></div><button class="button secondary load-more" id="history-more" type="button" hidden>Mostrar mais</button>
+        </section>
+
+        <section id="view-services" aria-label="Cadastro de serviços" hidden>
+          <div class="section-actions"><p>Os preços ficam salvos para os próximos atendimentos.</p><button class="button" id="new-service" type="button">＋ Novo serviço</button></div>
+          <div id="service-list" class="catalog-grid"></div>
+          <details class="panel archived"><summary>Serviços arquivados</summary><div id="archived-services"></div></details>
+        </section>
+
+        <section id="view-settings" aria-label="Ajustes e segurança dos registros" hidden>
+          <article class="panel"><p class="eyebrow">SEUS REGISTROS</p><h2>Armazenamento e backup</h2><p id="settings-storage"></p><div class="settings-actions"><button class="button secondary" id="export-backup" type="button">Baixar backup ↓</button><label id="import-label" class="button secondary" for="import-backup" hidden>Restaurar backup ↑<input id="import-backup" type="file" accept="application/json,.json" hidden></label></div><p id="backup-info" class="fine-print"></p></article>
+          <article class="panel"><h2>Como usar o caixa</h2><ol class="help-list"><li>Cadastre os serviços com os preços praticados pela barbearia.</li><li>No resumo, toque no serviço e escolha o pagamento nos botões que se abrem abaixo. O registro só é feito ao escolher o pagamento.</li><li>Use Atendimento com mais opções para vários serviços juntos ou descontos.</li><li>Registre as despesas pagas para acompanhar o resultado.</li><li>Se tocar no serviço errado, use Desfazer último registro. Outros erros podem ser cancelados no histórico, com um motivo.</li></ol><p class="fine-print">O resumo considera os valores registrados. Não calcula impostos, saldo bancário, estoque ou contas ainda não pagas.</p></article>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <dialog id="entry-dialog" aria-labelledby="entry-title"><form id="entry-form"><div class="dialog-heading"><div><p class="eyebrow">MOVIMENTAÇÃO DO CAIXA</p><h2 id="entry-title">Registrar atendimento</h2></div><button class="close-button" type="button" data-close aria-label="Fechar">×</button></div>
+    <div class="field-row"><div><label for="entry-date">Data do pagamento</label><input id="entry-date" type="date" required></div><div><label for="entry-payment">Forma de pagamento</label><select id="entry-payment" required><option value="">Selecione</option><option value="pix">Pix</option><option value="cash">Dinheiro</option><option value="debit">Cartão de débito</option><option value="credit">Cartão de crédito</option></select></div></div>
+    <div id="income-fields"><label for="item-service">Serviço</label><div class="add-service"><select id="item-service"><option value="">Selecione um serviço</option></select><button class="button secondary" id="add-item" type="button">Adicionar</button></div><p id="no-services" class="fine-print" hidden>Cadastre os serviços e preços antes de registrar um atendimento.</p><div id="cart"></div><div class="discount-row"><div><label for="entry-discount">Desconto total (R$)</label><input id="entry-discount" inputmode="decimal" value="0,00" maxlength="10"></div><div class="entry-total"><span>Total recebido</span><strong id="cart-total">R$ 0,00</strong></div></div></div>
+    <div id="expense-fields" hidden><label for="expense-description">O que foi pago?</label><input id="expense-description" maxlength="120" placeholder="Ex.: compra de lâminas"><div class="field-row"><div><label for="expense-category">Categoria</label><select id="expense-category"><option>Produtos e materiais</option><option>Aluguel</option><option>Água, luz e internet</option><option>Manutenção</option><option>Pagamento de profissionais</option><option>Outros</option></select></div><div><label for="expense-amount">Valor pago (R$)</label><input id="expense-amount" inputmode="decimal" placeholder="0,00" maxlength="10"></div></div></div>
+    <label for="entry-notes">Observação <span>(opcional)</span></label><textarea id="entry-notes" rows="2" maxlength="500" placeholder="Algum detalhe que queira lembrar"></textarea><p id="entry-error" class="form-error" role="alert"></p><button class="button full" id="save-entry" type="submit">Confirmar lançamento</button><p class="fine-print">Registre somente pagamentos realizados.</p>
+  </form></dialog>
+
+  <dialog id="service-dialog" aria-labelledby="service-title"><form id="service-form"><div class="dialog-heading"><h2 id="service-title">Novo serviço</h2><button class="close-button" type="button" data-close aria-label="Fechar">×</button></div><label for="service-name">Nome do serviço</label><input id="service-name" required maxlength="80" placeholder="Ex.: Corte masculino"><label for="service-price">Preço (R$)</label><input id="service-price" required inputmode="decimal" placeholder="0,00" maxlength="10"><p class="fine-print">Alterar o preço não modifica atendimentos já registrados.</p><p id="service-error" class="form-error" role="alert"></p><button class="button full" type="submit">Salvar serviço</button></form></dialog>
+
+  <dialog id="detail-dialog" aria-labelledby="detail-title"><div class="dialog-heading"><h2 id="detail-title">Detalhes do lançamento</h2><button class="close-button" type="button" data-close aria-label="Fechar">×</button></div><div id="entry-detail"></div><form id="cancel-form"><label for="cancel-reason">Motivo do cancelamento</label><input id="cancel-reason" required minlength="3" maxlength="200" placeholder="Ex.: valor registrado incorretamente"><p class="fine-print">O lançamento permanece no histórico, mas sai dos totais. Depois, registre o valor correto.</p><p id="cancel-error" class="form-error" role="alert"></p><button class="button danger full" type="submit">Cancelar este lançamento</button></form></dialog>
+  <dialog id="confirm-dialog" aria-labelledby="confirm-title"><h2 id="confirm-title">Confirmar ação</h2><p id="confirm-description"></p><div class="confirm-actions"><button class="button secondary" id="confirm-no" type="button">Voltar</button><button class="button" id="confirm-yes" type="button">Confirmar</button></div></dialog>
+</body>
+</html>

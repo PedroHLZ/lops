@@ -22,3 +22,11 @@ O contato por e-mail preserva o destinatário do projeto original via FormSubmit
 Telefone, endereço e horários foram preservados do projeto original. Atualize index.html e o número em js/script.js se necessário. Não foram inventados preços ou avaliações. As fotografias foram reaproveitadas do projeto e são ilustrativas.
 
 A imagem studio-optimized.jpg é uma versão reduzida de studio.jpg; o original foi preservado.
+
+## Caixa da barbearia
+
+O mini sistema fica em `/caixa/`, com foco no celular. Inclui serviços e preços, atendimentos com múltiplos itens e desconto, despesas, pagamentos, resumo por período, histórico com cancelamento, exportação CSV e backup/restauração JSON.
+
+Por escolha do proprietário, os registros ficam somente no navegador do aparelho (IndexedDB), sem login ou sincronização. Faça backups manuais e use sempre o mesmo endereço definitivo da Vercel. Instruções completas em [caixa/LEIA-ME.md](caixa/LEIA-ME.md).
+
+Para desenvolver, rode `npm ci`, `npm test` e `npm run build`. O `vercel.json` mantém a publicação estática pelo GitHub → Vercel. Não há configuração de banco ou credenciais para esta versão.

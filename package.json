@@ -2,5 +2,11 @@
   "name": "lops-barbearia",
   "version": "2.0.0",
   "private": true,
-  "scripts": { "build": "node scripts/build.cjs", "test": "node scripts/check.cjs" }
+  "scripts": {
+    "build": "node scripts/build.cjs",
+    "test": "node scripts/check.cjs && node --test tests/*.test.mjs"
+  },
+  "devDependencies": {
+    "fake-indexeddb": "^6.2.5"
+  }
 }
